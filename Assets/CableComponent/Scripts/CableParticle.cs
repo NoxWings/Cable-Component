@@ -38,26 +38,26 @@ public class CableParticle
 
 	#region Public functions
 
-	public void UpdateVerlet(Vector3 gravityDisplacement)
+	public void UpdateVerlet(Vector3 gravityDisplacement, float dt)
 	{
 		if (this.IsBound())
 		{
-			if (_boundRigid == null) {
+			// if (_boundRigid == null) {
 				this.UpdatePosition(_boundTo.position);		
-			}
-			else
-			{
-				switch (_boundRigid.interpolation) 
-				{
-				case RigidbodyInterpolation.Interpolate:
-					this.UpdatePosition(_boundRigid.position + (_boundRigid.velocity * Time.fixedDeltaTime) / 2);
-					break;
-				case RigidbodyInterpolation.None:
-				default:
-					this.UpdatePosition(_boundRigid.position + _boundRigid.velocity * Time.fixedDeltaTime);
-					break;
-				}
-			}
+			// }
+		// 	else
+		// 	{
+		// 		switch (_boundRigid.interpolation) 
+		// 		{
+		// 		case RigidbodyInterpolation.Interpolate:
+		// 			this.UpdatePosition(_boundRigid.position + (_boundRigid.velocity * dt) / 2);
+		// 			break;
+		// 		case RigidbodyInterpolation.None:
+		// 		default:
+		// 			this.UpdatePosition(_boundRigid.position + _boundRigid.velocity * dt);
+		// 			break;
+		// 		}
+		// 	}
 		}
 		else 
 		{
